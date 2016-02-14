@@ -1,10 +1,12 @@
-package apps.nathanpickard.stormy2016;
+package apps.nathanpickard.stormy2016.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import apps.nathanpickard.stormy2016.R;
 
 public class AlertDialogFragment extends DialogFragment{
 
