@@ -63,22 +63,14 @@ public class MainActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
 
-    @Bind(R.id.timeLabel)
-    TextView mTimeLabel;
-    @Bind(R.id.temperatureLabel)
-    TextView mTemperatureLabel;
-    @Bind(R.id.humidityValue)
-    TextView mHumidityValue;
-    @Bind(R.id.precipValue)
-    TextView mPrecipValue;
-    @Bind(R.id.summaryLabel)
-    TextView mSummaryLabel;
-    @Bind(R.id.iconImageView)
-    ImageView mIconImageView;
-    @Bind(R.id.refreshImageView)
-    ImageView mRefreshImageView;
-    @Bind(R.id.progressBar)
-    ProgressBar mProgressBar;
+    @Bind(R.id.timeLabel) TextView mTimeLabel;
+    @Bind(R.id.temperatureLabel) TextView mTemperatureLabel;
+    @Bind(R.id.humidityValue) TextView mHumidityValue;
+    @Bind(R.id.precipValue) TextView mPrecipValue;
+    @Bind(R.id.summaryLabel) TextView mSummaryLabel;
+    @Bind(R.id.iconImageView) ImageView mIconImageView;
+    @Bind(R.id.refreshImageView) ImageView mRefreshImageView;
+    @Bind(R.id.progressBar) ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
