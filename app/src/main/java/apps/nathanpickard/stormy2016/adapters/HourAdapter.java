@@ -43,7 +43,6 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
 
     public class HourViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener{
-
         public TextView mTimeLabel;
         public TextView mSummaryLabel;
         public TextView mTemperatureLabel;
@@ -65,7 +64,6 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             mSummaryLabel.setText(hour.getSummary());
             mTemperatureLabel.setText(hour.getTemperature() + "");
             mIconImageView.setImageResource(hour.getIconId());
-
         }
 
         @Override

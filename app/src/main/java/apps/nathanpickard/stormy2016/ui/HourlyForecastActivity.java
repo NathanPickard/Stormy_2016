@@ -14,6 +14,8 @@ import apps.nathanpickard.stormy2016.adapters.HourAdapter;
 import apps.nathanpickard.stormy2016.weather.Hour;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 
 public class HourlyForecastActivity extends AppCompatActivity {
 
@@ -32,7 +34,14 @@ public class HourlyForecastActivity extends AppCompatActivity {
         mHours = Arrays.copyOf(parcelables, parcelables.length, Hour[].class);
 
         HourAdapter adapter = new HourAdapter(this, mHours);
-        mRecyclerView.setAdapter(adapter);
+
+        // RecylerView Animations
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
+        alphaAdapter.setDuration(1500);
+        mRecyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
+
+
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
