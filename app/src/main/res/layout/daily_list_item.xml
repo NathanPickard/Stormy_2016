@@ -3,11 +3,11 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:background="#ffaa00"
+                android:paddingBottom="4dp"
                 android:paddingLeft="64dp"
                 android:paddingRight="32dp"
                 android:paddingTop="4dp"
-                android:paddingBottom="4dp">
+                tools:background="#ffaa00">
 
     <ImageView
         android:id="@+id/circleImageView"
@@ -22,9 +22,8 @@
         android:id="@+id/iconImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/circleImageView"
-        android:layout_toEndOf="@+id/circleImageView"
         android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/temperatureMinLabel"
         android:paddingLeft="10dp"
         android:src="@drawable/clear_day"/>
 
@@ -32,12 +31,12 @@
         android:id="@+id/dayNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/iconImageView"
-        android:layout_toEndOf="@+id/iconImageView"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/iconImageView"
+        android:layout_toRightOf="@+id/iconImageView"
+        android:paddingLeft="10dp"
         android:textColor="#ffffffff"
         android:textSize="20sp"
-        android:paddingLeft="10dp"
         tools:text="Wednesday"/>
 
     <TextView
@@ -51,4 +50,14 @@
         android:gravity="center"
         android:textColor="#f25019"
         tools:text="100"/>
+
+    <TextView
+        android:id="@+id/temperatureMinLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="50"
+        android:layout_alignBottom="@+id/iconImageView"
+        android:layout_toRightOf="@+id/circleImageView"
+        android:layout_toEndOf="@+id/circleImageView"
+        android:paddingLeft="5dp"/>
 </RelativeLayout>
