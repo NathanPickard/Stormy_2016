@@ -11,6 +11,7 @@ public class Day implements Parcelable{
     private long mTime;
     private String mSummary;
     private double mTemperatureMax;
+    private double mTemperatureMin;
     private String mIcon;
     private String mTimezone;
 
@@ -36,6 +37,14 @@ public class Day implements Parcelable{
 
     public void setTemperatureMax(double temperatureMax) {
         mTemperatureMax = temperatureMax;
+    }
+
+    public int getTemperatureMin() {
+        return (int) Math.round(mTemperatureMin);
+    }
+
+    public void setTemperatureMin(double temperatureMin) {
+        mTemperatureMin = temperatureMin;
     }
 
     public String getIcon() {
@@ -75,6 +84,7 @@ public class Day implements Parcelable{
         dest.writeLong(mTime);
         dest.writeString(mSummary);
         dest.writeDouble(mTemperatureMax);
+        dest.writeDouble(mTemperatureMin);
         dest.writeString(mIcon);
         dest.writeString(mTimezone);
     }
@@ -83,6 +93,7 @@ public class Day implements Parcelable{
         mTime = in.readLong();
         mSummary = in.readString();
         mTemperatureMax = in.readDouble();
+        mTemperatureMin = in.readDouble();
         mIcon = in.readString();
         mTimezone = in.readString();
     }

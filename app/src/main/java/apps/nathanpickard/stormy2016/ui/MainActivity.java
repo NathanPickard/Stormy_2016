@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements
             day.setSummary(jsonDay.getString("summary"));
             day.setIcon(jsonDay.getString("icon"));
             day.setTemperatureMax(jsonDay.getDouble("temperatureMax"));
+            day.setTemperatureMin(jsonDay.getDouble("temperatureMin"));
             day.setTime(jsonDay.getLong("time"));
             day.setTimezone(timezone);
 
