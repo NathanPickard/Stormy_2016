@@ -48,7 +48,7 @@
         android:layout_alignRight="@+id/circleImageView"
         android:layout_alignTop="@+id/circleImageView"
         android:gravity="center"
-        android:textColor="#f25019"
+        android:textColor="#00693C"
         tools:text="100"/>
 
     <TextView
