@@ -37,10 +37,9 @@ public class HourlyForecastActivity extends AppCompatActivity {
 
         // RecylerView Animations
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-        alphaAdapter.setDuration(1500);
+        alphaAdapter.setDuration(1000);
+        alphaAdapter.setFirstOnly(false);
         mRecyclerView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
-
-
 
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
