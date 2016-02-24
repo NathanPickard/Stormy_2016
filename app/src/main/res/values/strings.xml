@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Stormy 2016</string>
+    <string name="app_name">PDX Weather</string>
     <string name="error_title">Oops! Sorry!</string>
     <string name="error_message">There was an error. Please try again.</string>
     <string name="error_ok_button_text">OK</string>

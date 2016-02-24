@@ -87,8 +87,6 @@ public class MainActivity extends AppCompatActivity implements
 
         mProgressBar.setVisibility(View.INVISIBLE);
 
-
-
          final double currentLatitude = 45.5200;
          final double currentLongitude = -122.6819;
 
