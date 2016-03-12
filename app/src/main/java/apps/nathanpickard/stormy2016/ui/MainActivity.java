@@ -16,8 +16,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +53,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
@@ -71,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements
     @Bind(R.id.iconImageView) ImageView mIconImageView;
     @Bind(R.id.refreshImageView) ImageView mRefreshImageView;
     @Bind(R.id.progressBar) ProgressBar mProgressBar;
+    Spinner spinner;
+
+    double mCurrentLatitude;
+    double mCurrentLongitude;
+    public String mLocation;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +87,16 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.locations, R.layout.custom_spinner_item);
+        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
         createClient();
+
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_LOW_POWER)
                 .setInterval(10 * 1000)         // 10 seconds, in milliseconds
@@ -87,19 +105,17 @@ public class MainActivity extends AppCompatActivity implements
 
         mProgressBar.setVisibility(View.INVISIBLE);
 
-         final double currentLatitude = 45.5200;
-         final double currentLongitude = -122.6819;
-
-
+        mCurrentLatitude = 45.5200;
+        mCurrentLongitude = -122.6819;
 
         mRefreshImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getForecast(currentLatitude, currentLongitude);
+                getForecast(mCurrentLatitude, mCurrentLongitude);
             }
         });
 
-        getForecast(currentLatitude, currentLongitude);
+        getForecast(mCurrentLatitude, mCurrentLongitude);
 
         Log.d(TAG, "Main UI code is running!");
     }
@@ -308,6 +324,7 @@ public class MainActivity extends AppCompatActivity implements
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
+        intent.putExtra(getString(R.string.location_name), mLocation);
         startActivity(intent);
     }
 
@@ -379,6 +396,88 @@ public class MainActivity extends AppCompatActivity implements
         } else {
             Log.i(TAG, "Location services connection failed with code " + connectionResult.getErrorCode());
         }
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        //Portland coordinates
+        if(position == 0) {
+            mLocation = "Portland, OR";
+            mCurrentLatitude = 45.5200;
+            mCurrentLongitude = -122.6819;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Beaverton coordinates
+        if(position == 1) {
+            mLocation = "Beaverton, OR";
+            mCurrentLatitude = 45.4869;
+            mCurrentLongitude = -122.8036;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Hillsboro coordinates
+        if(position == 2) {
+            mLocation = "Hillsboro, OR";
+            mCurrentLatitude = 45.5228;
+            mCurrentLongitude = -122.9897;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Gresham coordinates
+        if (position == 3) {
+            mLocation = "Gresham, OR";
+            mCurrentLatitude = 45.5036;
+            mCurrentLongitude = -122.4394;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Tigard coordinates
+        if(position == 4) {
+            mLocation = "Tigard,OR";
+            mCurrentLatitude = 45.4278;
+            mCurrentLongitude = -122.7789;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Lake Oswego coordinates
+        if (position == 5) {
+            mLocation = "Lake Oswego, OR";
+            mCurrentLatitude = 45.4196;
+            mCurrentLongitude = -122.6676;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //Milwaukie coordinates
+        if (position == 6) {
+            mLocation = "Milwaukie, OR";
+            mCurrentLatitude = 45.4461;
+            mCurrentLongitude = -122.6392;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+        //PDX Airport coordinates
+        if (position == 7) {
+            mLocation = "PDX Airport";
+            mCurrentLatitude = 45.5886;
+            mCurrentLongitude = -122.5975;
+
+            getForecast(mCurrentLatitude, mCurrentLongitude);
+        }
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

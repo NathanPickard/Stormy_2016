@@ -22,8 +22,11 @@ public class DailyForecastActivity extends Activity {
 
     private Day[] mDays;
 
+    public String mLocation;
+
     @Bind(android.R.id.list) ListView mListView;
     @Bind(android.R.id.empty) TextView mEmptyTextView;
+    @Bind(R.id.locationLabel) TextView mLocationLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,12 @@ public class DailyForecastActivity extends Activity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
+
+        mLocation = intent.getStringExtra(getString(R.string.location_name));
         Parcelable[] parcelables = intent.getParcelableArrayExtra(MainActivity.DAILY_FORECAST);
         mDays = Arrays.copyOf(parcelables, parcelables.length, Day[].class);
+
+        mLocationLabel.setText(String.valueOf(mLocation));
 
         DayAdapter adapter = new DayAdapter(this, mDays);
         mListView.setAdapter(adapter);

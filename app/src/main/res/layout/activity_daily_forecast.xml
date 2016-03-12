@@ -53,7 +53,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Portland, OR"
+        android:text="---"
         android:textColor="#ffffffff"
         android:textSize="18sp"/>
 
