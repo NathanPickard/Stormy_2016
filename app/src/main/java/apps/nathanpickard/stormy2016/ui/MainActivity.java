@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
@@ -61,6 +62,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
     public static final String HOURLY_FORECAST = "HOURLY_FORECAST";
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+    private static final String PREFS_FILE = "apps.nathanpickard.stormy2016.preferences";
+    private static final String KEY_LOCATION = "key_location";
+    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
 
     private Forecast mForecast;
     private GoogleApiClient mGoogleApiClient;
@@ -87,13 +92,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        mSharedPreferences = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
+        mEditor = mSharedPreferences.edit();
 
+
+
+
+        spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.locations, R.layout.custom_spinner_item);
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        spinner.setSelection(mSharedPreferences.getInt("KEY_LOCATION", 0));
 
         createClient();
 
@@ -129,6 +141,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onPause() {
         super.onPause();
+
+        int selectedPosition = spinner.getSelectedItemPosition();
+        mEditor.putInt("KEY_LOCATION", selectedPosition);
+        mEditor.apply();
+
+
         mGoogleApiClient.disconnect();
     }
 
