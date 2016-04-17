@@ -22,9 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DailyForecastActivity">
+        <activity android:name=".ui.DailyForecastActivity"
+                    android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".ui.HourlyForecastActivity">
+        <activity android:name=".ui.HourlyForecastActivity"
+                    android:screenOrientation="portrait">
         </activity>
     </application>
 

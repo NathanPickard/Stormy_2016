@@ -96,8 +96,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mEditor = mSharedPreferences.edit();
 
 
-
-
         spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.locations, R.layout.custom_spinner_item);
