@@ -8,6 +8,7 @@ public class Current {
     private String mIcon;
     private long mTime;
     private double mTemperature;
+    private double mApparentTemperature;
     private double mHumidity;
     private String mTimeZone;
 
@@ -56,6 +57,14 @@ public class Current {
         mTemperature = temperature;
     }
 
+    public int getApparentTemperature() {
+        return (int)Math.round(mApparentTemperature);
+    }
+
+    public void setApparentTemperature(double apparentTemperature) {
+        mApparentTemperature = apparentTemperature;
+    }
+
     public double getHumidity() {
         return mHumidity;
     }
@@ -83,4 +92,6 @@ public class Current {
 
     private double mPrecipChance;
     private String mSummary;
+
+
 }

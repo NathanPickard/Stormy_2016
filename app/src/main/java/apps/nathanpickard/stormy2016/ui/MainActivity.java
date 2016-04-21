@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Bind(R.id.timeLabel) TextView mTimeLabel;
     @Bind(R.id.temperatureLabel) TextView mTemperatureLabel;
+    @Bind(R.id.apparentTemperatureLabel) TextView mApparentTemperatureLabel;
     @Bind(R.id.humidityValue) TextView mHumidityValue;
     @Bind(R.id.precipValue) TextView mPrecipValue;
     @Bind(R.id.summaryLabel) TextView mSummaryLabel;
@@ -226,7 +227,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Current current = mForecast.getCurrent();
 
         mTemperatureLabel.setText(current.getTemperature() + "");
-        mTimeLabel.setText("At " + current.getFormattedTime() + " it will be");
+        mApparentTemperatureLabel.setText(current.getApparentTemperature() + "");
+        mTimeLabel.setText("At " + current.getFormattedTime() + " it is");     //("At " + current.getFormattedTime() + " it will be");
         mHumidityValue.setText(current.getHumidity() + "");
         mPrecipValue.setText(current.getPrecipChance() + "%");
         mSummaryLabel.setText(current.getSummary());
@@ -312,6 +314,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         current.setPrecipChance(currently.getDouble("precipProbability"));
         current.setSummary(currently.getString("summary"));
         current.setTemperature(currently.getDouble("temperature"));
+        current.setApparentTemperature(currently.getDouble("apparentTemperature"));
         current.setTimeZone(timezone);
 
         Log.d(TAG, current.getFormattedTime());

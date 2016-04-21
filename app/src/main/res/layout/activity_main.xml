@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,9 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="--"
+        android:text="98"
         android:textColor="@android:color/white"
-        android:textSize="150sp"/>
+        android:textSize="150sp" />
+
 
     <ImageView
         android:id="@+id/degreeImageView"
@@ -28,7 +28,7 @@
         android:layout_marginTop="50dp"
         android:layout_toEndOf="@+id/temperatureLabel"
         android:layout_toRightOf="@+id/temperatureLabel"
-        android:src="@drawable/degree"/>
+        android:src="@drawable/degree" />
 
     <TextView
         android:id="@+id/timeLabel"
@@ -38,20 +38,20 @@
         android:layout_centerHorizontal="true"
         android:text="..."
         android:textColor="#80ffffff"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
 
     <Spinner
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_toRightOf="@+id/iconImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
         android:layout_above="@+id/timeLabel"
         android:layout_below="@id/locationLabel"
-        android:paddingLeft="3dp"
-        android:dropDownWidth="wrap_content"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:layout_toRightOf="@+id/iconImageView"
+        android:dropDownWidth="wrap_content"
+        android:paddingLeft="3dp" />
 
     <ImageView
         android:id="@+id/iconImageView"
@@ -60,15 +60,15 @@
         android:layout_alignBottom="@+id/spinner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/cloudy_night"/>
+        android:src="@drawable/cloudy_night" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/humidityPrecipLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/summaryLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
         android:weightSum="100">
 
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="HUMIDITY"
-                android:textColor="#80ffffff"/>
+                android:textColor="#80ffffff" />
 
             <TextView
                 android:id="@+id/humidityValue"
@@ -93,7 +93,7 @@
                 android:gravity="center_horizontal"
                 android:text="--"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="RAIN/SNOW?"
-                android:textColor="#80ffffff"/>
+                android:textColor="#80ffffff" />
 
             <TextView
                 android:id="@+id/precipValue"
@@ -117,7 +117,7 @@
                 android:gravity="center_horizontal"
                 android:text="--"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -125,13 +125,13 @@
         android:id="@+id/summaryLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/temperatureLabel"
+        android:layout_below="@+id/feelsLikeRelativeLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:gravity="center_horizontal"
         android:text="Getting current weather..."
         android:textColor="@android:color/white"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/refreshImageView"
@@ -139,14 +139,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/refresh"/>
+        android:src="@drawable/refresh" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/refreshImageView"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -163,7 +163,7 @@
             android:layout_weight="1"
             android:background="#40ffffff"
             android:text="HOURLY"
-            android:textColor="#ffffffff"/>
+            android:textColor="#ffffffff" />
 
         <Button
             android:id="@+id/dailyButton"
@@ -173,7 +173,49 @@
             android:layout_weight="1"
             android:background="#40ffffff"
             android:text="7 DAY"
-            android:textColor="#ffffffff"/>
+            android:textColor="#ffffffff" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/feelsLikeRelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperatureLabel"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp">
+
+
+        <TextView
+            android:id="@+id/feelsLikeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feels like:"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:paddingLeft="12dp" />
+
+        <TextView
+            android:id="@+id/apparentTemperatureLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/feelsLikeLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/feelsLikeLabel"
+            android:text="88"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/apparentTemperatureLabel"
+            android:layout_toRightOf="@id/apparentTemperatureLabel"
+            android:src="@drawable/degree"
+            android:scaleType="fitStart"
+            android:paddingBottom="15dp"
+            android:paddingLeft="1dp" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
