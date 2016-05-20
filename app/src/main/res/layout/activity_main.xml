@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="98"
+        android:text="--"
         android:textColor="@android:color/white"
         android:textSize="150sp" />
 
@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/timeLabel"
         android:layout_below="@id/locationLabel"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:layout_toRightOf="@+id/iconImageView"
         android:dropDownWidth="wrap_content"
-        android:paddingLeft="3dp" />
+        android:paddingLeft="3dp"
+        android:layout_centerInParent="true" />
 
     <ImageView
         android:id="@+id/iconImageView"
@@ -201,7 +201,7 @@
             android:layout_alignBaseline="@id/feelsLikeLabel"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/feelsLikeLabel"
-            android:text="88"
+            android:text="--"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 

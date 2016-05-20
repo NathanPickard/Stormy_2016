@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d(TAG, "Main UI code is running!");
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
