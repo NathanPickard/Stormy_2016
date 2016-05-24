@@ -12,6 +12,7 @@ public class Hour implements Parcelable{
     private double mTemperature;
     private String mIcon;
     private String mTimezone;
+    private double mPrecipPossibility;
 
     public Hour() {}
 
@@ -37,6 +38,15 @@ public class Hour implements Parcelable{
 
     public void setTemperature(double temperature) {
         mTemperature = temperature;
+    }
+
+    public int getPrecipPossibility() {
+        double precipPercentage = mPrecipPossibility * 100;
+        return (int) Math.round(precipPercentage);
+    }
+
+    public void setPrecipPossibility(double precipPossibility) {
+        mPrecipPossibility = precipPossibility;
     }
 
     public String getIcon() {
@@ -74,6 +84,7 @@ public class Hour implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(mTime);
         dest.writeDouble(mTemperature);
+        dest.writeDouble(mPrecipPossibility);
         dest.writeString(mSummary);
         dest.writeString(mIcon);
         dest.writeString(mTimezone);
@@ -82,6 +93,7 @@ public class Hour implements Parcelable{
     private Hour(Parcel in) {
         mTime = in.readLong();
         mTemperature = in.readDouble();
+        mPrecipPossibility = in.readDouble();
         mSummary = in.readString();
         mIcon = in.readString();
         mTimezone = in.readString();

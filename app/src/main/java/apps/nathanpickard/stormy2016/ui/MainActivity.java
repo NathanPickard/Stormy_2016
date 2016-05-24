@@ -291,6 +291,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             hour.setSummary(jsonHour.getString("summary"));
             hour.setTemperature(jsonHour.getDouble("temperature"));
+            hour.setPrecipPossibility(jsonHour.getDouble("precipProbability"));
             hour.setIcon(jsonHour.getString("icon"));
             hour.setTime(jsonHour.getLong("time"));
             hour.setTimezone(timezone);
@@ -346,6 +347,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
         intent.putExtra(getString(R.string.location_name), mLocation);
         startActivity(intent);
+
+        overridePendingTransition(R.transition.animation1, R.transition.animation2);
     }
 
     @OnClick(R.id.hourlyButton)

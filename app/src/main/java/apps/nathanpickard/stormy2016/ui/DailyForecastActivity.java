@@ -53,7 +53,7 @@ public class DailyForecastActivity extends Activity {
                 String conditions = mDays[position].getSummary();
                 String highTemp = mDays[position].getTemperatureMax() + "";
                 String lowTemp = mDays[position].getTemperatureMin() + "";
-                String message = String.format("%s: High of %s, Low of %s, and %s",
+                String message = String.format("%s - High: %s, Low: %s, and %s",
                         dayOfTheWeek,
                         highTemp,
                         lowTemp,

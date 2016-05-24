@@ -33,11 +33,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="false"
-        android:layout_centerVertical="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:textColor="#ffffffff"
         android:textSize="24sp"
         tools:text="100"/>
+
+    <TextView
+        android:id="@+id/hourlyPrecipLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="#ffffffff"
+        android:textSize="15sp"
+        tools:text="88"/>
 
     <TextView
         android:id="@+id/summaryLabel"
@@ -45,7 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/iconImageView"
-        android:layout_toLeftOf="@+id/temperatureLabel"
         android:layout_toRightOf="@+id/iconImageView"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"

@@ -45,6 +45,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             implements View.OnClickListener{
         public TextView mTimeLabel;
         public TextView mSummaryLabel;
+        public TextView mHourlyPrecipLabel;
         public TextView mTemperatureLabel;
         public ImageView mIconImageView;
 
@@ -53,6 +54,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
 
             mTimeLabel = (TextView) itemView.findViewById(R.id.timeLabel);
             mSummaryLabel = (TextView) itemView.findViewById(R.id.summaryLabel);
+            mHourlyPrecipLabel = (TextView) itemView.findViewById(R.id.hourlyPrecipLabel);
             mTemperatureLabel = (TextView) itemView.findViewById(R.id.temperatureLabel);
             mIconImageView = (ImageView) itemView.findViewById(R.id.iconImageView);
 
@@ -62,6 +64,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         public void bindHour(Hour hour) {
             mTimeLabel.setText(hour.getHour());
             mSummaryLabel.setText(hour.getSummary());
+            mHourlyPrecipLabel.setText(hour.getPrecipPossibility() + "%");
             mTemperatureLabel.setText(hour.getTemperature() + "");
             mIconImageView.setImageResource(hour.getIconId());
         }
